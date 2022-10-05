@@ -60,7 +60,12 @@
 
                   <div class="form-group">
                     <label for="part_category">Part Category</label>
-                    <input type="text" required name="part_category"  class="form-control" id="part_category">
+                    <select class="form-control" name="part_category" required="required">
+                        <option value="">Select Part Category</option>
+                        <option value="RH">RH</option>
+                        <option value="LH">LH</option>
+                        <option value="MID">MID</option>
+                    </select>
                   </div>
 
                   <div class="form-group">
@@ -108,7 +113,29 @@
             <div class="card">
 
                 <div class="card-header">
-                    <h1 class="card-title">Planning MO</h1><br>
+                    <h1 class="card-title">Import Excel</h1><br>
+                </div>
+
+                <div class="card-body">
+                    <form role="form" method="post" action="{{ url('admin/planning-daily/import') }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="text" name="module" value="daily" style="display:none">
+                        <div class="card-body">
+                        <div class="form-group">
+                            <label for="file">File</label>
+                            <input type="file" required name="file"  class="form-control" id="file" placeholder="File Import">
+                        </div>
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                        <button type="submit" class="btn btn-primary" style="background-color: #3BB873;border:none">Import</button>
+                        </div>
+                    </form>
+                </div>
+                <hr>
+                <div class="card-header">
+                    <h1 class="card-title">Planning MO<br>
                 </div>
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">

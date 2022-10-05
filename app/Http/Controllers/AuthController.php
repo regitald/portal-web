@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Traits\GeneralServices;
-use App\Models\Admin\UsersModel;
-use Illuminate\Support\Facades\Hash;
 use Session;
 
 class AuthController extends Controller
@@ -15,38 +13,28 @@ class AuthController extends Controller
         $data['title'] = 'Admin';
         return view('admin.login',$data);
     }
+
     public function login(Request $request)
     {
-        $PostRequest = $request->only(
-                'email',
-                'password'
-        );
-
         $role = [
-            'email' => 'Required',
+            'username' => 'Required',
             'password' => 'Required',
         ];
 
-        $validateData = $this->ValidateRequest($PostRequest, $role);
+        $validateData = $this->ValidateRequest($request->all(), $role);
 
         if (!empty($validateData)) {
             return redirect()->back()->withErrors($validateData);
         }
-        // Find the member by email
-        $cek_member = UsersModel::select('*')->where('email','=',$PostRequest['email'])->with(['role'])->first();
-        if (empty($cek_member)) {
-            return redirect()->back()->withErrors(['Failed! Email Address Not Found!']);
+        $login = $this->POST('http://103.214.112.156:3000/api/auth/login', $request->all());
+
+        if($login['status'] != 200) {
+            return redirect()->back()->withErrors($login['message']);
         }
-        $cek_member->makeVisible('password');
-        if (Hash::check($PostRequest['password'], $cek_member->password)) {
-            if ($cek_member->status=="active") {
-                Session::put('Users',$cek_member->toArray());
-                return redirect('/admin/dashboard');
-            }else{
-                return redirect()->back()->withErrors(['Failed! Member inactive!']);
-            }
-        }
-        return redirect()->back()->withErrors(['Failed! invalid password!']);
+        Session::put('Users',$login['content']);
+        // dd(Session::get('Users')['permissions']);
+
+        return redirect('/admin/dashboard');
     }
 
     public function logout(){

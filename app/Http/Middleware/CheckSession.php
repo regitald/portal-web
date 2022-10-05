@@ -21,9 +21,9 @@ class CheckSession
         $data = session('Users');
         if (empty($data)) {
             return redirect('/admin/logout');
-        } 
-        $this->setMenu();
+        }
+        // $this->setMenu();
         return $next($request);
-        
+
     }
 }

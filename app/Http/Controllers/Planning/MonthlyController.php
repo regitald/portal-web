@@ -46,6 +46,12 @@ class MonthlyController extends Controller
         return redirect('/admin/planning-monthly')->with('success', "Data succesfully imported ".$store['content']['inserted']);
     }
 
+    public function status($status, $id) {
+        $payload['status'] = $status;
+        $data = $this->PUT('http://103.214.112.156:3000/api/planning/monthly/'.$id, $payload);
+        return redirect('/admin/planning-monthly')->with('success', "Success Update Data !");
+    }
+
 }
 
 

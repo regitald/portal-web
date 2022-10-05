@@ -28,7 +28,7 @@
     </div>
     <div class="card-body login-card-body">
 
-    <p style="font-size: 12px;">Masuk menggunakan email dan password dibawah ini.</p>
+    <p style="font-size: 12px;">Masuk menggunakan username dan password dibawah ini.</p>
     @if($errors->any())
       <div class="alert alert-danger">
       {{$errors->first()}}
@@ -37,7 +37,7 @@
       <form method="POST" action="{{ route('login') }}">
        {{ csrf_field() }}
         <div class="input-group mb-3">
-          <input name="email" class="form-control" placeholder="Email">
+          <input name="username" class="form-control" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

@@ -32,7 +32,7 @@ class DailyController extends Controller
             return redirect()->back()->withErrors($store);
         }
 
-        return redirect('/admin/planning-daily')->with('success', "Success Input Data !");
+        return redirect('/admin/planning-dashboard')->with('success', "Success Input Data !");
     }
     public function show($id){
         $data['data'] = CategoryModel::where('type','=','expance')->where('user_id',Session::get('Users.id'))->where('id',$id)->first();
@@ -49,7 +49,13 @@ class DailyController extends Controller
 		}
 
         $store = $this->MULTIPART('http://103.214.112.156:3000/api/planning/import', $general_data, $multipart_data);
-        return redirect('/admin/planning-daily')->with('success', "Data succesfully imported ".$store['content']['inserted']);
+        return redirect('/admin/planning-dashboard')->with('success', "Data succesfully imported ".$store['content']['inserted']);
+    }
+
+    public function status($status, $id) {
+        $payload['status'] = $status;
+        $data = $this->PUT('http://103.214.112.156:3000/api/planning/daily/'.$id, $payload);
+        return redirect('/admin/planning-dashboard')->with('success', "Success Update Data !");
     }
 
 }

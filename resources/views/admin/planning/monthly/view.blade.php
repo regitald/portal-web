@@ -35,8 +35,8 @@
           @endif
             <div class="card">
               <div class="card-header">
-                <h1 class="card-title">Planning MO</h1><br>
-                <a class="btn btn-success btn-sm" href="{{ url('/admin/planning-monthly/add')}}"><i class="fa fa-plus"></i> Input MO</a>
+                <h1 class="card-title">Planning MO Monthly</h1><br>
+                <a class="btn btn-success btn-sm" href="{{ url('/admin/planning-monthly/add')}}"><i class="fa fa-plus"></i> Input MO Monthly</a>
                 <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal"><i class="fas fa-file-excel"></i> Import Excel</a>
                 <!-- Modal -->
                 <div id="myModal" class="modal fade" role="dialog">
@@ -62,7 +62,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                            <button type="submit" class="btn btn-primary" style="background-color: #3BB873;border:none">Submit</button>
+                            <button type="submit" class="btn btn-primary" style="background-color: #3BB873;border:none">Import</button>
                             </div>
                         </form>
                     </div>
@@ -76,6 +76,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -102,7 +103,17 @@
                     <td>{{$key['start_production']}} - {{$key['finish_production']}}</td>
                     <td>{{$key['status']}}</td>
                     <td>
-                    <a class="btn btn-warning" href='{{ url('/admin/planning/edit')}}/{{$key['id'] }}')"><i class="fa fa-edit"></i></a>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Update Status
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="planning-monthly/status/OPEN/{{$key['id']}}" value ="OPEN">Open</a>
+                            <a class="dropdown-item" href="planning-monthly/status/ON_PROGRESS/{{$key['id']}}" value ="ON_PROGRESS">On Progress</a>
+                            <a class="dropdown-item" href="planning-monthly/status/CLOSED/{{$key['id']}}" value ="CLOSED">Closed</a>
+                        </div>
+                    </div>
+                    </td>
                 </tr>
                 @endforeach
                   </tbody>

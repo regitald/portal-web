@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
 
         Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 
-        Route::get('/user', 'App\Http\Controllers\Users\UserController@index');
+        Route::get('/users', 'App\Http\Controllers\Users\UserController@index');
         Route::get('/user/edit/{id}', 'App\Http\Controllers\Users\UserController@show');
         Route::get('/user/edit/{id}', 'App\Http\Controllers\Users\UserController@show');
         Route::get('/user/add', 'App\Http\Controllers\Users\UserController@add');
@@ -36,9 +36,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
         Route::get('/user/delete/{id}', 'App\Http\Controllers\Users\UserController@destroy');
 
         //===========Planning
-        Route::get('/planning-daily', 'App\Http\Controllers\Planning\DailyController@index');
+
+        Route::get('/planning-dashboard', 'App\Http\Controllers\DashboardController@planning');
+
+        // Route::get('/planning-daily', 'App\Http\Controllers\Planning\DailyController@index');
         Route::get('/planning-daily/edit/{id}', 'App\Http\Controllers\Planning\DailyController@show');
-        Route::get('/planning-daily/add', 'App\Http\Controllers\Planning\DailyController@add');
+        Route::get('/planning-daily', 'App\Http\Controllers\Planning\DailyController@add');
+        Route::get('/planning-daily/status/{status}/{id}', ['uses' => 'App\Http\Controllers\Planning\DailyController@status', 'as' => 'planning-daily.status']);
         Route::post('/planning-daily/store', 'App\Http\Controllers\Planning\DailyController@store');
         Route::post('/planning-daily/update/{id}', 'App\Http\Controllers\Planning\DailyController@update');
         Route::post('/planning-daily/import', 'App\Http\Controllers\Planning\DailyController@import');
@@ -50,9 +54,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
         Route::post('/planning-monthly/store', 'App\Http\Controllers\Planning\MonthlyController@store');
         Route::post('/planning-monthly/update/{id}', 'App\Http\Controllers\Planning\MonthlyController@update');
         Route::post('/planning-monthly/import', 'App\Http\Controllers\Planning\MonthlyController@import');
+        Route::get('/planning-monthly/status/{status}/{id}', ['uses' => 'App\Http\Controllers\Planning\MonthlyController@status', 'as' => 'planning-monthly.status']);
 
         //Maintenance
-        Route::get('/maitenance', 'App\Http\Controllers\MaintenanceController@index');
+        Route::get('/maintenance', 'App\Http\Controllers\MaintenanceController@index');
     });
 
 });

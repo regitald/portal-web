@@ -44,31 +44,31 @@
 
                     <!-- Modal content-->
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5>Import Excel</h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Drop Excel Here.</p>
-                        <form role="form" method="post" action="{{ url('admin/planning-daily/import') }}" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <input type="text" name="module" value="daily" style="display:none">
-                            <div class="card-body">
-                            <div class="form-group">
-                                <label for="file">File</label>
-                                <input type="file" required name="file"  class="form-control" id="file">
-                            </div>
-                            </div>
-                            <!-- /.card-body -->
+                        <div class="modal-header">
+                            <h5>Import Excel</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Drop Excel Here.</p>
+                            <form role="form" method="post" action="{{ url('admin/planning-daily/import') }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="text" name="module" value="daily" style="display:none">
+                                <div class="card-body">
+                                <div class="form-group">
+                                    <label for="file">File</label>
+                                    <input type="file" required name="file"  class="form-control" id="file">
+                                </div>
+                                </div>
+                                <!-- /.card-body -->
 
-                            <div class="card-footer">
-                            <button type="submit" class="btn btn-primary" style="background-color: #3BB873;border:none">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                                <div class="card-footer">
+                                <button type="submit" class="btn btn-primary" style="background-color: #3BB873;border:none">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@
                     <td>{{$key['part_name']}}</td>
                     <td>{{$key['part_category']}}</td>
                     <td>{{$key['cycle_time']}}</td>
-                    <td>{{$key['status']}}</td>
+                    <td>{{strtolower($key['status'])}}</td>
                     <td>
                     <a class="btn btn-warning" href='{{ url('/admin/planning/edit')}}/{{$key['id'] }}')"><i class="fa fa-edit"></i></a>
                 </tr>

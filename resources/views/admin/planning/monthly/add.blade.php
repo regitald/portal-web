@@ -18,7 +18,7 @@
       <div class="container-fluid">
 
       <div class="row">
-          <div class="col-6">
+          <div class="col-12">
             @if($errors->any())
               <div class="alert alert-danger">
               {{$errors->first()}}
@@ -55,7 +55,12 @@
 
                   <div class="form-group">
                     <label for="part_category">Part Category</label>
-                    <input type="text" required name="part_category"  class="form-control" id="part_category">
+                    <select class="form-control" name="part_category" required="required">
+                        <option value="">Select Part Category</option>
+                        <option value="RH">RH</option>
+                        <option value="LH">LH</option>
+                        <option value="MID">MID</option>
+                    </select>
                   </div>
 
                   <div class="form-group">

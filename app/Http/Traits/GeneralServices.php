@@ -22,11 +22,15 @@ trait GeneralServices {
 
     }
     protected function POST($url,$data = [],$headers = [],$timeout = ['connection_timeout' => 600,'timeout'=> 600]){
-        return json_decode($this->_client->POST($url,[
+
+        $response = $this->_client->POST($url,[
             'form_params' => $data,
             'headers' => $this->header,
             $timeout
-        ])->getBody(),true);
+        ]);
+        $data = json_decode($response->getBody(),true);
+        $data['status'] = $response->getStatusCode();
+        return $data;
     }
 	protected function PUT($url,$data = [], $headers = [],$timeout = ['connection_timeout' => 600,'timeout'=> 600]){
 		return json_decode($this->_client->PUT($url,[
