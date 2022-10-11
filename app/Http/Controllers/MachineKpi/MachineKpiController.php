@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers\MachineKpi;
+
+use App\Http\Controllers\Controller;
+use App\Http\Traits\GeneralServices;
+use Illuminate\Http\Request;
+use Session;
+
+class MachineKpiController extends Controller
+{
+    use GeneralServices;
+
+    public function index(){
+        $response = $this->GET('http://103.214.112.156:3000/api/planning/daily');
+        $data['data'] = $response['content'];
+        $data['title'] = 'KPI Machine';
+        return view('admin.production_analytic.kpi',$data);
+    }
+
+}
+
+
