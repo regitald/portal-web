@@ -56,6 +56,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
         Route::post('/planning-monthly/import', 'App\Http\Controllers\Planning\MonthlyController@import');
         Route::get('/planning-monthly/status/{status}/{id}', ['uses' => 'App\Http\Controllers\Planning\MonthlyController@status', 'as' => 'planning-monthly.status']);
         Route::get('/kpi/machine', 'App\Http\Controllers\MachineKpi\MachineKpiController@index');
+        Route::get('/kpi/all', 'App\Http\Controllers\MachineKpi\MachineKpiController@all');
+
 
         //Maintenance
         Route::get('/maintenance', 'App\Http\Controllers\MaintenanceController@index');

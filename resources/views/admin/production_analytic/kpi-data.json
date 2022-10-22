@@ -1,0 +1,101 @@
+[
+  {
+    lineNumber: 'INJECTION/MC01',
+    oee: 94,
+    ava: 70,
+    perf: 36,
+    qua: 26,
+    runtime: 26,
+    status: 1
+  },
+  {
+    lineNumber: 'INJECTION/MC02',
+    oee: 4,
+    ava: 9,
+    perf: 43,
+    qua: 62,
+    runtime: 65,
+    status: 1
+  },
+  {
+    lineNumber: 'INJECTION/MC03',
+    oee: 51,
+    ava: 41,
+    perf: 39,
+    qua: 77,
+    runtime: 46,
+    status: 0
+  },
+  {
+    lineNumber: 'INJECTION/MC04',
+    oee: 90,
+    ava: 71,
+    perf: 54,
+    qua: 26,
+    runtime: 7,
+    status: 1
+  },
+  {
+    lineNumber: 'INJECTION/MC05',
+    oee: 70,
+    ava: 65,
+    perf: 48,
+    qua: 60,
+    runtime: 46,
+    status: 0
+  },
+  {
+    lineNumber: 'INJECTION/MC06',
+    oee: 55,
+    ava: 25,
+    perf: 71,
+    qua: 20,
+    runtime: 24,
+    status: 1
+  },
+  {
+    lineNumber: 'INJECTION/MC07',
+    oee: 21,
+    ava: 92,
+    perf: 83,
+    qua: 74,
+    runtime: 9,
+    status: 0
+  },
+  {
+    lineNumber: 'INJECTION/MC08',
+    oee: 22,
+    ava: 57,
+    perf: 33,
+    qua: 88,
+    runtime: 84,
+    status: 1
+  },
+  {
+    lineNumber: 'INJECTION/MC11',
+    oee: 21,
+    ava: 72,
+    perf: 70,
+    qua: 19,
+    runtime: 14,
+    status: 1
+  },
+  {
+    lineNumber: 'INJECTION/MC12',
+    oee: 15,
+    ava: 13,
+    perf: 15,
+    qua: 43,
+    runtime: 82,
+    status: 1
+  },
+  {
+    lineNumber: 'ASSEMBLY/HPW03',
+    oee: 73,
+    ava: 72,
+    perf: 47,
+    qua: 82,
+    runtime: 15,
+    status: 0
+  }
+]
