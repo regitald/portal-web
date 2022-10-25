@@ -48,13 +48,13 @@
       <div class="row flex">
         <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC01">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC01">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-01</b>
                 </div>
-                <div class="col-6 text-start">
-                    Status : Running
+                <div class="col-6 text-start" >
+                    <b id="INJECTION/MC01_status">Running</b>
                 </div>
                 </div>
             </div>
@@ -69,8 +69,8 @@
               <canvas id="INJECTION/MC01" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC01">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC01">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -84,10 +84,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC01">0</span></<td>
@@ -99,13 +99,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC02">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC02">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-02</b>
                 </div>
-                <div class="col-6 text-start">
-                    Status : Running
+                <div class="col-6 text-start" >
+                     <b id="INJECTION/MC02_status" >Running</b>
                 </div>
             </div>
             </div>
@@ -120,8 +120,8 @@
               <canvas id="INJECTION/MC02"/>
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC02">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC02">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -135,10 +135,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC02">0</span></<td>
@@ -150,13 +150,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC03">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC03">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-03</b>
                 </div>
-                <div class="col-6 text-start">
-                    Status : Running
+                <div class="col-6 text-start" >
+                     <b id="INJECTION/MC03_status" >Running</b>
                 </div>
             </div>
             </div>
@@ -171,8 +171,8 @@
               <canvas id="INJECTION/MC03" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC03">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC03">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -186,10 +186,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered mb-0" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC03">0</span></<td>
@@ -201,15 +201,16 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC04">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC04">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-04</b>
                 </div>
                 <div class="col-6 text-start">
-                    Status : Running
+                     <b id="INJECTION/MC04_status" >Running</b>
                 </div>
-            </div>            </div>
+            </div>
+        </div>
             <div class="card-body" id="card_body_INJECTION/MC04">
             <div style="width: 100%; height: 100%; float: left; position: relative;">
               <div style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; margin-top: -15px; line-height:19px; text-align: center; z-index: 999999999999999">
@@ -221,8 +222,8 @@
               <canvas id="INJECTION/MC04" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC04">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC04">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -236,10 +237,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC04">0</span></<td>
@@ -251,13 +252,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC05">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC05">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-05</b>
                 </div>
                 <div class="col-6 text-start">
-                    Status : Running
+                     <b id="INJECTION/MC05_status" >Running</b>
                 </div>
             </div>            </div>
             <div class="card-body" id="card_body_INJECTION/MC05">
@@ -271,8 +272,8 @@
               <canvas id="INJECTION/MC05" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC05">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC05">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -286,10 +287,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC05">0</span></<td>
@@ -301,13 +302,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC06">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC06">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-06</b>
                 </div>
                 <div class="col-6 text-start">
-                    Status : Running
+                     <b id="INJECTION/MC06_status" >Running</b>
                 </div>
             </div>            </div>
             <div class="card-body" id="card_body_INJECTION/MC06">
@@ -321,8 +322,8 @@
               <canvas id="INJECTION/MC06" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC06">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC06">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -336,10 +337,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC06">0</span></<td>
@@ -351,13 +352,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC07">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC07">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-07</b>
                 </div>
                 <div class="col-6 text-start">
-                    Status : Running
+                     <b id="INJECTION/MC07_status" >Running</b>
                 </div>
             </div>            </div>
             <div class="card-body" id="card_body_INJECTION/MC07">
@@ -371,8 +372,8 @@
               <canvas id="INJECTION/MC07" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC07">
-            <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC07">
+            <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -386,10 +387,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC07">0</span></<td>
@@ -401,13 +402,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC08">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC08">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-08</b>
                 </div>
                 <div class="col-6 text-start">
-                    Status : Running
+                     <b id="INJECTION/MC08_status" >Running</b>
                 </div>
             </div>
             </div>
@@ -422,8 +423,8 @@
               <canvas id="INJECTION/MC08" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC08">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC08">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -437,10 +438,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC08">0</span></<td>
@@ -452,13 +453,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC11">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC11">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-11</b>
                 </div>
                 <div class="col-6 text-start">
-                    Status : Running
+                     <b id="INJECTION/MC11_status" >Running</b>
                 </div>
             </div>
             </div>
@@ -473,8 +474,8 @@
               <canvas id="INJECTION/MC11" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC11">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC11">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -488,10 +489,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC11">0</span></<td>
@@ -503,13 +504,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_INJECTION/MC12">
+            <div class="card-header" style="padding:0.5rem" id="card_header_INJECTION/MC12">
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>MC-12</b>
                 </div>
-                <div class="col-6 text-start">
-                    Status : Running
+                <div class="col-6 text-start" >
+                     <b id="INJECTION/MC12_status" >Running</b>
                 </div>
             </div>
             </div>
@@ -524,8 +525,8 @@
               <canvas id="INJECTION/MC12" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_INJECTION/MC12">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_INJECTION/MC12">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -539,10 +540,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_INJECTION/MC12">0</span></<td>
@@ -554,13 +555,13 @@
          </div>
          <div class="col-sm-2">
           <div class="card">
-            <div class="card-header" id="card_header_ASSEMBLY/HPW03">
+            <div class="card-header" style="padding:0.5rem" id="card_header_ASSEMBLY/HPW03" >
             <div class="row ">
                 <div class="col-6 text-start">
                     <i class="fas fa-th-large"></i> <b>HP03</b>
                 </div>
                 <div class="col-6 text-start">
-                    Status : Running
+                    <b id="ASSEMBLY/HPW03_status" >Running</b>
                 </div>
             </div>
             </div>
@@ -575,8 +576,8 @@
               <canvas id="ASSEMBLY/HPW03" />
             </div>
             </div>
-            <div class="card-footer" id="card_footer_ASSEMBLY/HPW03">
-                <table class="table table-sm table-bordered">
+            <div class="card-footer" style="padding:0.5rem" id="card_footer_ASSEMBLY/HPW03">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
                             <td class="table-primary text-center" >AVA</<td>
@@ -590,10 +591,10 @@
                         </tr>
                     </thead>
                 </table>
-                <table class="table table-sm table-bordered">
+                <table class="table table-sm table-bordered" style="font-size:12px;font-weight:bold;margin-bottom:0rem">
                     <thead>
                         <tr>
-                            <td class="bg-success text-center" >Total Running Time</<td>
+                            <td class="bg-success text-center" >TotalRuningTime</<td>
                         </tr>
                         <tr>
                             <td class="text-center" ><span id="runtime_ASSEMBLY/HPW03">0</span></<td>
@@ -608,10 +609,10 @@
     </section>
     <!-- /.content -->
   </div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
 <script>
     var mock = [
         {
@@ -627,7 +628,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -644,7 +645,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -661,7 +662,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -677,7 +678,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -693,7 +694,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -709,7 +710,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -725,7 +726,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -741,7 +742,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -757,7 +758,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -773,7 +774,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 47
                 }
             }
         },
@@ -789,7 +790,7 @@
                     }]
                 },
                 options: {
-                    cutout: 40
+                    cutout: 80
                 }
             }
         }
@@ -810,8 +811,10 @@
         m.config));
     }
 </script>
+<sctipt ></script>
 <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script><script>
     // var socket = io("http://103.214.112.156:3000/machines");
+
     var socket = io("127.0.0.1:3000/machines");
 
     const statusGreenColor = ['#1ba60b','#5dc150','#196110']
@@ -819,12 +822,6 @@
     const statusGreyColor = ['#595959','#8b8b8b']
 
     const statusColor = ['#8b8b8b','#ee5770','#84cf9d']
-
-    const roundLine = ()=>{
-        var ctx = this._chart.ctx;
-        ctx.lineCap = 'round';
-    }
-
 
     socket.on("kpi",(data)=>{
       console.log(data);
@@ -837,12 +834,14 @@
         var cardHeader = "card_header_" + data[chart.id].lineNumber
         var cardBody = "card_body_" + data[chart.id].lineNumber
         var cardFooter = "card_footer_" + data[chart.id].lineNumber
+        var status = data[chart.id].lineNumber + "_status";
 
-        document.getElementById(oee).innerHTML = data[chart.id].oee + "%"
-        document.getElementById(ava).innerHTML = data[chart.id].ava + "%"
-        document.getElementById(perf).innerHTML = data[chart.id].perf + "%"
-        document.getElementById(qua).innerHTML = data[chart.id].qua + "%"
-        document.getElementById(runtime).innerHTML = data[chart.id].runtime + " hour"
+        document.getElementById(oee).innerHTML = data[chart.id].oee + " %"
+        document.getElementById(ava).innerHTML = data[chart.id].ava + " %"
+        document.getElementById(perf).innerHTML = data[chart.id].perf +" %"
+        document.getElementById(qua).innerHTML = data[chart.id].qua + " %"
+        let hour = data[chart.id].runtime > 1 ? " hours" : " hour"
+        document.getElementById(runtime).innerHTML = data[chart.id].runtime + hour
 
         chart.data.datasets.forEach((dataset) => {
 
@@ -852,21 +851,24 @@
                 document.getElementById(cardHeader).style.backgroundColor = statusGreyColor[1]
                 document.getElementById(cardBody).style.backgroundColor = statusGreyColor[0]
                 document.getElementById(cardFooter).style.backgroundColor = statusGreyColor[1]
+                document.getElementById(status).innerHTML = "Stopped"
 
                 dataset.backgroundColor = [statusGreyColor[1],statusGreyColor[1]]
                 dataset.borderColor = statusGreyColor[1]
-                dataset.spacing = 100
 
 
             }else if(data[chart.id].status == 1){
                 document.getElementById(cardHeader).style.backgroundColor = statusGreenColor[1]
                 document.getElementById(cardBody).style.backgroundColor = statusGreenColor[0]
                 document.getElementById(cardFooter).style.backgroundColor = statusGreenColor[1]
+                document.getElementById(status).innerHTML = "Running"
 
                 dataset.backgroundColor = [statusGreenColor[2],statusGreenColor[1]]
                 dataset.borderColor = statusGreenColor[1]
             }
         });
+
+        console.log(Chart.element);
 
         chart.update()
       }
