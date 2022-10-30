@@ -12,7 +12,7 @@ class MonthlyController extends Controller
     use GeneralServices;
 
     public function index(){
-        $response = $this->GET('http://localhost:3000/api/planning/monthly');
+        $response = $this->GET('http://103.214.112.156:3000/api/planning/monthly');
         $data['data'] = $response['content'];
         $data['title'] = 'Manufacturing Order';
         return view('admin.planning.monthly.view',$data);
@@ -24,7 +24,7 @@ class MonthlyController extends Controller
     }
 
     public function store(Request $request){
-        $store = $this->POST('http://localhost:3000/api/planning/monthly', $request->all());
+        $store = $this->POST('http://103.214.112.156:3000/api/planning/monthly', $request->all());
 
         if($store['message'] != 'success'){
             return redirect()->back()->withErrors($store);
@@ -42,13 +42,13 @@ class MonthlyController extends Controller
 			$multipart_data['file']    = $request->file('file');
 		}
 
-        $store = $this->MULTIPART('http://localhost:3000/api/planning/import', $general_data, $multipart_data);
+        $store = $this->MULTIPART('http://103.214.112.156:3000/api/planning/import', $general_data, $multipart_data);
         return redirect('/admin/planning-monthly')->with('success', "Data succesfully imported ".$store['content']['inserted']);
     }
 
     public function status($status, $id) {
         $payload['status'] = $status;
-        $data = $this->PUT('http://localhost:3000/api/planning/monthly/'.$id, $payload);
+        $data = $this->PUT('http://103.214.112.156:3000/api/planning/monthly/'.$id, $payload);
         return redirect('/admin/planning-monthly')->with('success', "Success Update Data !");
     }
 

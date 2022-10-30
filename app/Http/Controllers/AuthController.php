@@ -26,7 +26,7 @@ class AuthController extends Controller
         if (!empty($validateData)) {
             return redirect()->back()->withErrors($validateData);
         }
-        $login = $this->POST('http://localhost:3000/api/auth/login', $request->all());
+        $login = $this->POST('http://103.214.112.156:3000/api/auth/login', $request->all());
 
         if($login['status'] != 200) {
             return redirect()->back()->withErrors($login['message']);
