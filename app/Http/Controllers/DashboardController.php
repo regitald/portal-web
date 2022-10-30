@@ -20,7 +20,7 @@ class DashboardController extends Controller
         Session::put('menu_id',$id);
 
         if($id == '1' || $id == 1) return redirect('/admin/planning-dashboard');
-        if($id == '2' || $id == 2) return redirect('/admin/production-analytic');
+        if($id == '2' || $id == 2) return redirect('/admin/kpi-dashboard');
         if($id == '3' || $id == 3) return redirect('/admin/maintenance');
     }
 
