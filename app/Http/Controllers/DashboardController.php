@@ -25,8 +25,8 @@ class DashboardController extends Controller
     }
 
     public function planning(Request $request){
-        $data['machine'] = $this->GET('http://103.214.112.156:3000/api/planning/daily/graphic?production_date_from='.date('Y-m-01').'&production_date_to='.date('Y-m-t'));
-        $response = $this->GET('http://103.214.112.156:3000/api/planning/daily');
+        $data['machine'] = $this->GET('http://localhost:3000/api/planning/daily/graphic?production_date_from='.date('Y-m-01').'&production_date_to='.date('Y-m-t'));
+        $response = $this->GET('http://localhost:3000/api/planning/daily');
         $data['data'] = $response['content'];
         $data['title'] = 'Dashboard Planning';
         return view('admin.dashboard.planning',$data);

@@ -132,7 +132,7 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
 <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script><script>
-    var socket = io("http://103.214.112.156:3000/machines");
+    var socket = io("http://localhost:3000/machines");
     socket.on("kpi",(data)=>{
       console.log(data);
       for(chart of charts){

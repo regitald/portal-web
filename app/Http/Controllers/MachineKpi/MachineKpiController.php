@@ -12,14 +12,14 @@ class MachineKpiController extends Controller
     use GeneralServices;
 
     public function index(){
-        $response = $this->GET('http://103.214.112.156:3000/api/planning/daily');
+        $response = $this->GET('http://localhost:3000/api/planning/daily');
         $data['data'] = $response['content'];
         $data['title'] = 'KPI Machine';
         return view('admin.production_analytic.kpi',$data);
     }
 
     public function all(){
-        $response = $this->GET('http://103.214.112.156:3000/api/planning/daily');
+        $response = $this->GET('http://localhost:3000/api/planning/daily');
         $data['data'] = $response['content'];
         $data['title'] = 'KPI All Machine';
         return view('admin.production_analytic.all',$data);

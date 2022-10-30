@@ -152,7 +152,7 @@
         var t= new Date(fr.getTime() + (offset*60*1000) + ((3600*24*1000)*15))
         var to = t.toISOString().split('T')[0]
         console.log(from , to);
-        var url = 'http://103.214.112.156:3000/api/planning/:period/graphic?production_date_from='+from+'&production_date_to='+to+'';
+        var url = 'http://localhost:3000/api/planning/:period/graphic?production_date_from='+from+'&production_date_to='+to+'';
 
             axios({
               method: 'GET',
