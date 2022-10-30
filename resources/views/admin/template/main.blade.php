@@ -69,12 +69,14 @@
 
         <li class="nav-header">Admin</li>
         @foreach(Session::get('Users')['permissions'] as $key)
-          <li class="nav-item">
-            <a href="{{ url('admin/'.str_replace(' ', '-', strtolower($key['menu']['name']))) }}" class="nav-link">
-              <i class="nav-icon far fa-circle text-green"></i>
-                <p>{{$key['menu']['name']}}</p>
-            </a>
-          </li>
+            @if($key['menu']['group'] == Session::get('menu_id'))
+            <li class="nav-item">
+                <a href="{{ url('admin/'.str_replace(' ', '-', strtolower($key['menu']['name']))) }}" class="nav-link">
+                <i class="nav-icon far fa-circle text-green"></i>
+                    <p>{{$key['menu']['name']}}</p>
+                </a>
+            </li>
+            @endif
         @endforeach
         </ul>
       </nav>

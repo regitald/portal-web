@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
     Route::group(['middleware' => ['CheckPermission']], function(){
 
         Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
+        Route::get('/menu/{id}', 'App\Http\Controllers\DashboardController@menu');
 
         Route::get('/users', 'App\Http\Controllers\Users\UserController@index');
         Route::get('/user/edit/{id}', 'App\Http\Controllers\Users\UserController@show');
@@ -58,6 +59,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
 
         //Maintenance
         Route::get('/maintenance', 'App\Http\Controllers\MaintenanceController@index');
+        Route::post('/maintenance/update', 'App\Http\Controllers\MaintenanceController@update');
+        Route::post('/maintenance/store', 'App\Http\Controllers\MaintenanceController@store');
+
+        //Analytic
+        Route::get('/production-analytic', 'App\Http\Controllers\ProductionAnalyticController@index');
+
+
+        //KPI
+        Route::get('/kpi-dashboard', 'App\Http\Controllers\KPIController@detail');
     });
 
 });
