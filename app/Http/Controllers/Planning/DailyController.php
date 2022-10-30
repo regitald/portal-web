@@ -12,21 +12,21 @@ class DailyController extends Controller
     use GeneralServices;
 
     public function index(){
-        $response = $this->GET('http://103.214.112.156:3000/api/planning/daily');
+        $response = $this->GET('http://localhost:3000/api/planning/daily');
         $data['data'] = $response['content'];
         $data['title'] = 'Manufacturing Order';
         return view('admin.planning.daily.view',$data);
     }
 
     public function add(Request $request){
-        $response = $this->GET('http://103.214.112.156:3000/api/planning/monthly');
+        $response = $this->GET('http://localhost:3000/api/planning/monthly');
         $data['data'] = $response['content'];
         $data['title'] = 'Input MO';
         return view('admin.planning.daily.add',$data);
     }
 
     public function store(Request $request){
-        $store = $this->POST('http://103.214.112.156:3000/api/planning/daily', $request->all());
+        $store = $this->POST('http://localhost:3000/api/planning/daily', $request->all());
 
         if($store['message'] != 'success'){
             return redirect()->back()->withErrors($store);
@@ -48,13 +48,13 @@ class DailyController extends Controller
 			$multipart_data['file']    = $request->file('file');
 		}
 
-        $store = $this->MULTIPART('http://103.214.112.156:3000/api/planning/import', $general_data, $multipart_data);
+        $store = $this->MULTIPART('http://localhost:3000/api/planning/import', $general_data, $multipart_data);
         return redirect('/admin/planning-dashboard')->with('success', "Data succesfully imported ".$store['content']['inserted']);
     }
 
     public function status($status, $id) {
         $payload['status'] = $status;
-        $data = $this->PUT('http://103.214.112.156:3000/api/planning/daily/'.$id, $payload);
+        $data = $this->PUT('http://localhost:3000/api/planning/daily/'.$id, $payload);
         return redirect('/admin/planning-dashboard')->with('success', "Success Update Data !");
     }
 
