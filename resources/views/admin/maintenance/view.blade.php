@@ -1,5 +1,48 @@
 @extends('admin.template.main')
 @section('content')
+  <link rel="stylesheet" href="{{url('sites/fullcalendar/fonts/icomoon/style.css')}}">
+  <link href="{{url('sites/fullcalendar/packages/core/main.css')}}" rel='stylesheet' />
+  <link href="{{url('sites/fullcalendar/packages/daygrid/main.css')}}" rel='stylesheet' />
+  <style>
+    .tooltipevent{
+        width:200px;/*
+        height:100px;*/
+        background:#ccc;
+        position:absolute;
+        z-index:10001;
+        transform:translate3d(-50%,-100%,0);
+        font-size: 0.8rem;
+        box-shadow: 1px 1px 3px 0px #888888;
+        line-height: 1rem;
+    }
+    .tooltipevent div{
+        padding:10px;
+    }
+    .tooltipevent div:first-child{
+        font-weight:bold;
+        color:White;
+        background-color:#888888;
+        border:solid 1px black;
+    }
+    .tooltipevent div:last-child::after, .tooltipevent div:last-child::before{
+        width:0;
+        height:0;
+        border:solid 5px transparent;/*
+        box-shadow: 1px 1px 2px 0px #888888;*/
+        border-bottom:0;
+        border-top-color:whitesmoke;
+        position: absolute;
+        display: block;
+        content: "";
+        bottom:-4px;
+        left:50%;
+        transform:translateX(-50%);
+    }
+    .tooltipevent div:last-child::before{
+        border-top-color:#888888;
+        bottom:-5px;
+    }
+  </style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,12 +50,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Calendar</h1>
+            <h1>Maintenance</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Calendar</li>
+              <li class="breadcrumb-item active">Maintenance</li>
             </ol>
           </div>
         </div>
@@ -22,252 +65,168 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="sticky-top mb-3">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Draggable Events</h4>
-                </div>
-                <div class="card-body">
-                  <!-- the events -->
-                  <div id="external-events">
-                    <div class="external-event bg-success">Lunch</div>
-                    <div class="external-event bg-warning">Go home</div>
-                    <div class="external-event bg-info">Do homework</div>
-                    <div class="external-event bg-primary">Work on UI design</div>
-                    <div class="external-event bg-danger">Sleep tight</div>
-                    <div class="checkbox">
-                      <label for="drop-remove">
-                        <input type="checkbox" id="drop-remove">
-                        remove after drop
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Create Event</h3>
-                </div>
-                <div class="card-body">
-                  <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                    <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
-                    <ul class="fc-color-picker" id="color-chooser">
-                      <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
-                      <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
-                    </ul>
-                  </div>
-                  <!-- /btn-group -->
-                  <div class="input-group">
-                    <input id="new-event" type="text" class="form-control" placeholder="Event Title">
 
-                    <div class="input-group-append">
-                      <button id="add-new-event" type="button" class="btn btn-primary">Add</button>
-                    </div>
-                    <!-- /btn-group -->
-                  </div>
-                  <!-- /input-group -->
+      <div class="row">
+          <div class="col-4">
+            @if($errors->any())
+              <div class="alert alert-success">
+              {{$errors->first()}}
+              </div>
+            @endif
+            <!-- general form elements -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Create Maintenance Event</h3>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card card-primary">
-              <div class="card-body p-0">
-                <!-- THE CALENDAR -->
-                <div id="calendar"></div>
-              </div>
-              <!-- /.card-body -->
+                <div class="card-body">
+                    <form role="form" method="post" action="{{ url('admin/maintenance/store') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label>Line Number:</label>
+                            <input type="text" class="form-control" name="line_number" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" class="form-control" name="maintenance_date">
+                        </div>
+                        <div class="form-group">
+                            <label>Status:</label>
+                            <select class="form-control" name="status" required="required">
+                                <option value="">Select Status</option>
+                                <option value="open">Open</option>
+                                <option value="on_progress">On Progress</option>
+                                <option value="done">Done</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Create</button>
+                </form>
+                </div>
             </div>
             <!-- /.card -->
+          </div>
+          <div class="col-8">
+
+            <div class="card">
+                <div class="card-header">
+                <h3 class="card-title">Maintenance Events Board</h3>
+                </div>
+                <div class="card-body">
+                    <div id='calendar' style="width: 800px;height:800px;box-shadow: 3px 3px 3px 3px #ccd0d6;padding:10px"></div>
+                    <div class="modal fade" id="schedule-edit">
+                        <form role="form" method="post" action="{{ url('admin/maintenance/update') }}">
+                        {{ csrf_field() }}
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Edit Maintenance Schedule</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <input type="text" name="id" id="id" value="" style="display: none"/>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <form></form>
+                                            <div class="form-group">
+                                                <label>Line Number:</label>
+                                                <input type="text" class="form-control" name="line_number" id="line_number" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Status:</label>
+                                                <select class="form-control" name="status" id="status" required="required">
+                                                    <option value="">Select Status</option>
+                                                    <option value="open">Open</option>
+                                                    <option value="on_progress">On Progress</option>
+                                                    <option value="done">Done</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                <!-- /.card -->
+            </div>
           </div>
           <!-- /.col -->
         </div>
         <!-- /.row -->
+      </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 @endsection
+    <script src="{{url('sites/fullcalendar/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{url('sites/fullcalendar/js/popper.min.js')}}"></script>
+    <script src="{{url('sites/fullcalendar/js/bootstrap.min.js')}}"></script>
 
-<script src="{{url('sites/plugins/jquery/jquery.min.js')}}"></script>
-<script>
-  $(function () {
+    <script src="{{url('sites/fullcalendar/packages/core/main.js')}}"></script>
+    <script src="{{url('sites/fullcalendar/packages/interaction/main.js')}}"></script>
+    <script src="{{url('sites/fullcalendar/packages/daygrid/main.js')}}"></script>
+    <script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+    <script>
+      var data = @json($data['content']);
+      document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
 
-    /* initialize the external events
-     -----------------------------------------------------------------*/
-    function ini_events(ele) {
-      ele.each(function () {
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            plugins: [ 'interaction', 'dayGrid' ],
+            defaultDate: '2022-10-12',
+            timeZone: 'America/New_York',
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            events: data,
+            eventMouseEnter: function(info) {
+            var tis=info.el;
+            var title=info.event._def.title;
+            var desc=info.event.extendedProps.tooltip;
+            var tooltip = '<div class="tooltipevent" style="top:'+($(tis).offset().top-5)+'px;left:'+($(tis).offset().left+($(tis).width())/2)+'px"><div>' + title + '</div></div>';
+            var $tooltip = $(tooltip).appendTo('body');
 
-        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-        // it doesn't need to have a start or end
-        var eventObject = {
-          title: $.trim($(this).text()) // use the element's text as the event title
-        }
+//            If you want to move the tooltip on mouse movement then you can uncomment it
+//            $(tis).mouseover(function(e) {
+//                $(tis).css('z-index', 10000);
+//                $tooltip.fadeIn('500');
+//                $tooltip.fadeTo('10', 1.9);
+//            }).mousemove(function(e) {
+//                $tooltip.css('top', e.pageY + 10);
+//                $tooltip.css('left', e.pageX + 20);
+//            });
+            },
+            eventMouseLeave: function(info) {
+                console.log('eventMouseLeave');
+                $(info.el).css('z-index', 8);
+                $('.tooltipevent').remove();
+            },
+            eventClick: function(info) {
+                var id=info.event.id;
+                var line_number=info.event._def.title;
+                var status=info.event._def.extendedProps.status;
+                console.log(info.event)
 
-        // store the Event Object in the DOM element so we can get to it later
-        $(this).data('eventObject', eventObject)
+                $("#schedule-edit #id").val( id );
+                $("#schedule-edit #line_number").val( line_number );
+                $("#schedule-edit #status").val( status ).change();
+                var modal = $("#schedule-edit");
+                modal.modal();
+            }
+            });
 
-        // make the event draggable using jQuery UI
-        $(this).draggable({
-          zIndex        : 1070,
-          revert        : true, // will cause the event to go back to its
-          revertDuration: 0  //  original position after the drag
-        })
+            calendar.render();
+        });
 
-      })
-    }
-
-    ini_events($('#external-events div.external-event'))
-
-    /* initialize the calendar
-     -----------------------------------------------------------------*/
-    //Date for the calendar events (dummy data)
-    var date = new Date()
-    var d    = date.getDate(),
-        m    = date.getMonth(),
-        y    = date.getFullYear()
-
-    var Calendar = FullCalendar.Calendar;
-    var Draggable = FullCalendarInteraction.Draggable;
-
-    var containerEl = document.getElementById('external-events');
-    var checkbox = document.getElementById('drop-remove');
-    var calendarEl = document.getElementById('calendar');
-
-    // initialize the external events
-    // -----------------------------------------------------------------
-
-    new Draggable(containerEl, {
-      itemSelector: '.external-event',
-      eventData: function(eventEl) {
-        console.log(eventEl);
-        return {
-          title: eventEl.innerText,
-          backgroundColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          borderColor: window.getComputedStyle( eventEl ,null).getPropertyValue('background-color'),
-          textColor: window.getComputedStyle( eventEl ,null).getPropertyValue('color'),
-        };
-      }
-    });
-
-    var calendar = new Calendar(calendarEl, {
-      plugins: [ 'bootstrap', 'interaction', 'dayGrid', 'timeGrid' ],
-      header    : {
-        left  : 'prev,next today',
-        center: 'title',
-        right : 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      'themeSystem': 'bootstrap',
-      //Random default events
-      events    : [
-        {
-          title          : 'All Day Event',
-          start          : new Date(y, m, 1),
-          backgroundColor: '#f56954', //red
-          borderColor    : '#f56954', //red
-          allDay         : true
-        },
-        {
-          title          : 'Long Event',
-          start          : new Date(y, m, d - 5),
-          end            : new Date(y, m, d - 2),
-          backgroundColor: '#f39c12', //yellow
-          borderColor    : '#f39c12' //yellow
-        },
-        {
-          title          : 'Meeting',
-          start          : new Date(y, m, d, 10, 30),
-          allDay         : false,
-          backgroundColor: '#0073b7', //Blue
-          borderColor    : '#0073b7' //Blue
-        },
-        {
-          title          : 'Lunch',
-          start          : new Date(y, m, d, 12, 0),
-          end            : new Date(y, m, d, 14, 0),
-          allDay         : false,
-          backgroundColor: '#00c0ef', //Info (aqua)
-          borderColor    : '#00c0ef' //Info (aqua)
-        },
-        {
-          title          : 'Birthday Party',
-          start          : new Date(y, m, d + 1, 19, 0),
-          end            : new Date(y, m, d + 1, 22, 30),
-          allDay         : false,
-          backgroundColor: '#00a65a', //Success (green)
-          borderColor    : '#00a65a' //Success (green)
-        },
-        {
-          title          : 'Click for Google',
-          start          : new Date(y, m, 28),
-          end            : new Date(y, m, 29),
-          url            : 'http://google.com/',
-          backgroundColor: '#3c8dbc', //Primary (light-blue)
-          borderColor    : '#3c8dbc' //Primary (light-blue)
-        }
-      ],
-      editable  : true,
-      droppable : true, // this allows things to be dropped onto the calendar !!!
-      drop      : function(info) {
-        // is the "remove after drop" checkbox checked?
-        if (checkbox.checked) {
-          // if so, remove the element from the "Draggable Events" list
-          info.draggedEl.parentNode.removeChild(info.draggedEl);
-        }
-      }
-    });
-
-    calendar.render();
-    // $('#calendar').fullCalendar()
-
-    /* ADDING EVENTS */
-    var currColor = '#3c8dbc' //Red by default
-    //Color chooser button
-    var colorChooser = $('#color-chooser-btn')
-    $('#color-chooser > li > a').click(function (e) {
-      e.preventDefault()
-      //Save color
-      currColor = $(this).css('color')
-      //Add color effect to button
-      $('#add-new-event').css({
-        'background-color': currColor,
-        'border-color'    : currColor
-      })
-    })
-    $('#add-new-event').click(function (e) {
-      e.preventDefault()
-      //Get value and make sure it is not null
-      var val = $('#new-event').val()
-      if (val.length == 0) {
-        return
-      }
-
-      //Create events
-      var event = $('<div />')
-      event.css({
-        'background-color': currColor,
-        'border-color'    : currColor,
-        'color'           : '#fff'
-      }).addClass('external-event')
-      event.html(val)
-      $('#external-events').prepend(event)
-
-      //Add draggable funtionality
-      ini_events(event)
-
-      //Remove event from text input
-      $('#new-event').val('')
-    })
-  })
-</script>
+    </script>
+<script src="{{url('sites/fullcalendar/js/main.js')}}"></script>
 </body>
 </html>
