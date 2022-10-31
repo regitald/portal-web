@@ -35,9 +35,15 @@ class DailyController extends Controller
         return redirect('/admin/planning-dashboard')->with('success', "Success Input Data !");
     }
     public function show($id){
-        $data['data'] = CategoryModel::where('type','=','expance')->where('user_id',Session::get('Users.id'))->where('id',$id)->first();
-        $data['title'] = 'Expance Category Edit';
-        return view('admin.category.expance.edit',$data);
+        $data['data'] = $this->GET('http://103.214.112.156:3000/api/planning/daily/'.$id)['content'][0];
+        $data['title'] = 'Planning Edit';
+        return view('admin.planning.daily.edit',$data);
+    }
+
+    public function update(Request $request, $id) {
+        $update = $this->PUT('http://103.214.112.156:3000/api/planning/daily/'.$request['id'], $request->all());
+
+        return redirect('/admin/planning-dashboard')->with('success', "Success Update Data!");
     }
     public function import(Request $request){
 

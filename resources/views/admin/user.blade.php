@@ -24,20 +24,41 @@
 
   <div class="card">
     <div class="card-header">
-      <a href="#" class="h2"><b>Account Login</b></a>
+      <a href="#" class="h2"><b>{{ $title }}</b></a>
     </div>
     <div class="card-body login-card-body">
 
-    <p style="font-size: 12px;">Masuk menggunakan username dan password dibawah ini.</p>
+    <p style="font-size: 12px;">Lengkapi data dibawah ini.</p>
     @if($errors->any())
       <div class="alert alert-danger">
       {{$errors->first()}}
       </div>
     @endif
-      <form method="POST" action="{{ route('login') }}">
+      <form method="POST" action="{{ route('user') }}">
        {{ csrf_field() }}
         <div class="input-group mb-3">
           <input name="username" class="form-control" placeholder="Username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="first_name" class="form-control" placeholder="Firstname">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="last_name" class="form-control" placeholder="Lastname">
+          <div class="input-group-append">
+            <div class="input-group-text">
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="email" class="form-control" placeholder="Mail">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -52,11 +73,14 @@
             </div>
           </div>
         </div>
+
+        <input type="text" name="role_id" class="form-control" value="8" style="display: none;">
+        <input type="text" name="phone_number" class="form-control" value="0" style="display: none;">
         <div class="row">
           <!-- /.col -->
           <div class="col-12" style="margin-top: 10px;">
-            <button type="submit" class="btn btn-primary btn-block" style="background-color: #3BB873;border:none">Login</button>
-            <p style="font-size: 12px;margin-top: 10px;">Tidak memiliki akun ? <a href="{{ route('user') }}">Request akun</a></p>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #3BB873;border:none">Request Account</button>
+            <p style="font-size: 12px;margin-top: 10px;">Sudah memiliki akun ? <a href="{{ route('/') }}">Login</a></p>
           </div>
           <!-- /.col -->
         </div>

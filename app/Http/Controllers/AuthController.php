@@ -41,4 +41,20 @@ class AuthController extends Controller
         Session::flush();
         return redirect('/');
     }
+
+    public function user(Request $request){
+        $data['title'] = 'Request Account';
+        return view('admin.user',$data);
+    }
+
+    public function store(Request $request)
+    {
+        $user = $this->POST('http://103.214.112.156:3000/api/users', $request->all());
+
+        if($user['message'] != 'success') {
+            return redirect()->back()->withErrors($user['message']);
+        }
+
+        return redirect('/')->with('success', "Account Created!");
+    }
 }
