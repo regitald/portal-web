@@ -49,7 +49,7 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-        $user = $this->POST('http://103.214.112.156:3000/api/users', $request->all());
+        $user = $this->POST('http://localhost:3000/api/users', $request->all());
 
         if($user['message'] != 'success') {
             return redirect()->back()->withErrors($user['message']);
