@@ -49,8 +49,8 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="part_mo">Part MO</label>
-                    <input type="text" required name="part_mo"  class="form-control" id="part_mo">
+                    <label for="part_mo">Part No</label>
+                    <input type="text" required name="part_no"  class="form-control" id="part_no">
                   </div>
 
                   <div class="form-group">
@@ -89,8 +89,8 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="work_hours">Work Hours</label>
-                    <input type="text" required name="work_hours"  class="form-control" id="work_hours">
+                    <label for="work_hour">Work Hours</label>
+                    <input type="text" required name="work_hour"  class="form-control" id="work_hour">
                   </div>
 
                 </div>

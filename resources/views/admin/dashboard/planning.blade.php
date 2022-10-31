@@ -81,6 +81,7 @@
                     <th>Part Category</th>
                     <th>Cycle Time</th>
                     <th>Status</th>
+                    <th>Update</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -94,6 +95,8 @@
                     <td>{{$key['part_category']}}</td>
                     <td>{{$key['cycle_time']}}</td>
                     <td>{{$key['status']}}</td>
+                    <td>
+                    <a class="btn btn-warning" href='{{ url('/admin/planning-daily/edit')}}/{{$key['id'] }}')"><i class="fa fa-edit"></i></a></td>
                 </tr>
                 @endforeach
                   </tbody>
@@ -107,6 +110,7 @@
                     <th>Part Category</th>
                     <th>Cycle Time</th>
                     <th>Status</th>
+                    <th>Update</th>
                   </tr>
                   </tfoot>
                 </table>

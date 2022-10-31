@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', 'App\Http\Controllers\AuthController@index');
+Route::get('/',  [ 'as' => '/', 'uses' => 'App\Http\Controllers\AuthController@index']);
 Route::post('/admin/login', [ 'as' => 'login', 'uses' => 'App\Http\Controllers\AuthController@login']);
+Route::get('/user', [ 'as' => 'user', 'uses' => 'App\Http\Controllers\AuthController@user']);
+Route::post('/user', [ 'as' => 'user', 'uses' => 'App\Http\Controllers\AuthController@store']);
 Route::get('/admin/logout', 'App\Http\Controllers\AuthController@logout');
 Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function(){
 
@@ -45,6 +47,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
         Route::get('/planning-daily', 'App\Http\Controllers\Planning\DailyController@add');
         Route::get('/planning-daily/status/{status}/{id}', ['uses' => 'App\Http\Controllers\Planning\DailyController@status', 'as' => 'planning-daily.status']);
         Route::post('/planning-daily/store', 'App\Http\Controllers\Planning\DailyController@store');
+        Route::get('/planning-monthly/edit/{id}', 'App\Http\Controllers\Planning\DailyController@show');
         Route::post('/planning-daily/update/{id}', 'App\Http\Controllers\Planning\DailyController@update');
         Route::post('/planning-daily/import', 'App\Http\Controllers\Planning\DailyController@import');
 
