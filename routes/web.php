@@ -67,6 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
 
         //KPI
         Route::get('/kpi-dashboard', 'App\Http\Controllers\MachineKpi\MachineKpiController@index');
+        Route::get('/kpi-dashboard/detail/{id}', 'App\Http\Controllers\MachineKpi\MachineKpiController@detail');
         Route::get('/kpi/detail', 'App\Http\Controllers\KPIController@detail');
         Route::get('/kpi/all', 'App\Http\Controllers\MachineKpi\MachineKpiController@all');
     });
