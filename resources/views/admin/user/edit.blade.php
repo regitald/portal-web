@@ -32,47 +32,43 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <!-- form start -->
-              <form role="form" method="post" action="{{ url('admin/user/update/'.$data['id']) }}">
+              <form role="form" method="post" action="{{ url('admin/user/update') }}">
                 {{ csrf_field() }}
                 <div class="card-body">
-                  
                 <div class="form-group">
-                    <label>Role</label>
-                    <select class="custom-select" name="role_id" required>
-                      <option value="">==Please Select==</option>
-                      @foreach($role as $key)
-                      <option value="{{$key['role_id']}}" @if($data['role_id']==$key['role_id']) selected @endif>{{$key['role_name']}}</option>
-                      @endforeach
-                    </select>
+                    <label for="exampleInputText">Firstname</label>
+                    <input type="text" name="first_name" class="form-control" id="exampleInputText" required value="{{$data['first_name']}}">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputText">Name</label>
-                    <input type="text" name="fullname" class="form-control" id="exampleInputText"  value="{{$data['fullname']}}">
+                    <label for="exampleInputText">Lastname</label>
+                    <input type="text" name="last_name" class="form-control" id="exampleInputText" required value="{{$data['last_name']}}">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputText">Account Email</label>
-                    <input type="email" disabled class="form-control" id="exampleInputText" value="{{$data['email']}}">
+                    <label for="exampleInputText">Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputText" required value="{{$data['username']}}" disabled>
                   </div>
                   <div class="form-group">
-                    <label>Employee Gender</label>
-                    <select class="custom-select" name="gender">
-                      <option value="Male" @if($data['gender']=="Male") selected @endif>Male</option>
-                      <option value="Female" @if($data['gender']=="Female") selected @endif>Female</option>
-                    </select>
+                    <label for="exampleInputText">Email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputText" required value="{{$data['email']}}" disabled>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group"> 
                       <label>Account Status</label>
                       <select class="custom-select" name="status">
-                        <option value="active"  @if($data['status']=="active") selected @endif>Active</option>
-                        <option value="inactive" @if($data['status']=="inactive") selected @endif>Deadactivated</option>
+                      <option value="true" @if($data['status']==1) selected @endif>active</option>
+                        <option value="false" @if($data['status']=0) selected @endif>inactive</option>
+                        <!-- <option value="false" @if($data['status']!=1 && $data['status']!='1' && $data['status']!="true") selected="selected" @endif>Deadactivated</option> -->
                       </select>
                   </div>
                 </div>
+                <input type="text" name="id" class="form-control" value="{{$data['id']}}"  style="display: none;">
+                <input type="text" name="role_id" class="form-control" value="{{$data['role_id']}}"  style="display: none;">
+                <input type="text" name="phone_number" class="form-control" value="{{$data['phone_number']}}" style="display: none;">
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                
               </form>
             </div>
             <!-- /.card -->

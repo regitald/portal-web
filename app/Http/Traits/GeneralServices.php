@@ -47,6 +47,13 @@ trait GeneralServices {
               $timeout
           ])->getBody(),true);
     }
+    protected function DELETE($url,$data = [], $headers = [],$timeout = ['connection_timeout' => 600,'timeout'=> 600]){
+        return json_decode($this->_client->DELETE($url,[
+            'form_params' => $data,
+            'headers' => $this->header,
+            $timeout
+        ])->getBody(),true);
+  }
 
     protected function MULTIPART($url,$general_data = [], $multipart_data = [], $headers = [], $timeout = ['connection_timeout' => 600,'timeout'=> 600]){
 

@@ -32,10 +32,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
 
         Route::get('/users', 'App\Http\Controllers\Users\UserController@index');
         Route::get('/user/edit/{id}', 'App\Http\Controllers\Users\UserController@show');
-        Route::get('/user/edit/{id}', 'App\Http\Controllers\Users\UserController@show');
         Route::get('/user/add', 'App\Http\Controllers\Users\UserController@add');
         Route::post('/user/create', 'App\Http\Controllers\Users\UserController@store');
-        Route::post('/user/update/{id}', 'App\Http\Controllers\Users\UserController@update');
+        Route::post('/user/update', 'App\Http\Controllers\Users\UserController@update');
         Route::get('/user/delete/{id}', 'App\Http\Controllers\Users\UserController@destroy');
 
         //===========Planning

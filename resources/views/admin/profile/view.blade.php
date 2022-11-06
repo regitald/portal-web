@@ -33,7 +33,7 @@
             </div>
         @endif
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Data</h3>
@@ -54,41 +54,53 @@
             </div>
             <!-- /.card -->
           </div>
-            
-          <div class="col-md-6">
-            <!-- general form elements -->
+          <!-- /.col -->
+          <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Change Password</h3>
-              </div>
+                <h3 class="card-title">Data</h3><br><br>
+                <a class="btn btn-success btn-sm" href="{{ url('/admin/user/add')}}"><i class="fa fa-plus"></i> Add New</a>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form" method="post" action="{{ url('/admin/profile/change-password') }}">
-              {{ csrf_field() }}
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Current Password</label>
-                    <input type="password" class="form-control"  name ="password" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">New Password</label>
-                    <input type="password" name="newpassword" class="form-control" minlength="8" id="exampleInputPassword1" placeholder="Password">
-                    <p>Must contain uppercase, lowecase, number, and special char</p>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" name="confirm_newpassword" class="form-control"  minlength="8" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              <div class="card-body">
+                
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($contoh as $key)
+                  <tr>
+                    <td>{{$key['username']}}</td>
+                    <td>{{$key['first_name']}}</td>
+                    <td>{{$key['last_name']}}</td>
+                    <td>{{$key['email']}}</td>
+                    <td>
+                    <a class="btn btn-warning" href='{{ url('/admin/user/edit')}}/{{$key['id'] }}')"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger" href='{{ url('/admin/user/delete')}}/{{$key['id'] }}')"><i class="fa fa-trash"></i></button>
+                  </td>
+                  </tr>
+                @endforeach
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Username</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
           </div>
           <!-- /.col -->
         </div>

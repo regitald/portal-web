@@ -35,48 +35,36 @@
               <form role="form" method="post" action="{{ url('admin/user/create') }}">
                 {{ csrf_field() }}
                 <div class="card-body">
-                  
                 <div class="form-group">
-                    <label>Role</label>
-                    <select class="custom-select" name="role_id" required>
-                      <option value="">==Please Select==</option>
-                      @foreach($role as $key)
-                      <option value="{{$key['role_id']}}">{{$key['role_name']}}</option>
-                      @endforeach
-                    </select>
+                    <label for="exampleInputText">Firstname</label>
+                    <input type="text" name="first_name" class="form-control" id="exampleInputText" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputText">Name</label>
-                    <input type="text" name="fullname" class="form-control" id="exampleInputText" required>
+                    <label for="exampleInputText">Lastname</label>
+                    <input type="text" name="last_name" class="form-control" id="exampleInputText" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputText">Account Email</label>
+                    <label for="exampleInputText">Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputText" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputText">Email</label>
                     <input type="email" name="email" class="form-control" id="exampleInputText" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputText">Account Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputText" required>
-                    <p>Must contain uppercase, lowecase, number, and special char</p>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputText">Account Confirmation Password</label>
-                    <input type="password" name="password_confirmation" class="form-control" id="exampleInputText" required>
-                  </div>
-                  <div class="form-group">
-                    <label>Employee Gender</label>
-                    <select class="custom-select" name="gender">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
                   </div>
                   <div class="form-group">
                       <label>Account Status</label>
                       <select class="custom-select" name="status">
-                        <option value="active">Active</option>
-                        <option value="inactive">Deadactivated</option>
+                        <option value="true">Active</option>
+                        <option value="false">Deadactivated</option>
                       </select>
                   </div>
                 </div>
+                <input type="text" name="role_id" class="form-control" value="8" style="display: none;">
+                <input type="text" name="phone_number" class="form-control" value="<?php echo mt_rand(0, 9); ?>" style="display: none;">
                 <!-- /.card-body -->
 
                 <div class="card-footer">
