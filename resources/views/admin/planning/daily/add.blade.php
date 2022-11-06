@@ -38,9 +38,26 @@
                     <input type="date" required name="production_date"  class="form-control" id="production_date">
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="line_number">Line Number</label>
                     <input type="text" required name="line_number"  class="form-control" id="line_number">
+                  </div> -->
+                  <div class="form-group">
+                    <label for="line_number">Line Number</label>
+                    <select class="form-control" name="line_number" required="required">
+                        <option value="">Select Line Number</option>
+                        <option value="INJECTION/MC01">INJECTION/MC01</option>
+                        <option value="INJECTION/MC02">INJECTION/MC02</option>
+                        <option value="INJECTION/MC03">INJECTION/MC03</option>
+                        <option value="INJECTION/MC04">INJECTION/MC04</option>
+                        <option value="INJECTION/MC05">INJECTION/MC05</option>
+                        <option value="INJECTION/MC06">INJECTION/MC06</option>
+                        <option value="INJECTION/MC08">INJECTION/MC08</option>
+                        <option value="INJECTION/MC11">INJECTION/MC11</option>
+                        <option value="INJECTION/MC12">INJECTION/MC12</option>
+                        <option value="ASSY/HPW03">ASSY/HPW03</option>
+                        
+                    </select>
                   </div>
 
                   <div class="form-group">

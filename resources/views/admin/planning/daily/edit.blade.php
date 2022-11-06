@@ -38,7 +38,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="production_date">Production Date</label>
-                    <input type="text" required name=""  class="form-control" id="production_date" value="<?php echo date('d/m/Y', strtotime($data['production_date'])) ?>" readonly>
+                    <input type="date" required name="production_date"  class="form-control" id="production_date" value="{{ \Carbon\Carbon::parse($data['production_date'])->format('Y-m-d') }}" >
                   </div>
 
                   <div class="form-group">

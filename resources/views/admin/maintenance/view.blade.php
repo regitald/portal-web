@@ -82,8 +82,17 @@
                     <form role="form" method="post" action="{{ url('admin/maintenance/store') }}">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label>Line Number:</label>
-                            <input type="text" class="form-control" name="line_number" required="required">
+                            <label for="line_number">Line Number</label>
+                            <select class="form-control" name="line_number" required="required">
+                                <option value="">Select Line Number</option>
+                                @foreach($list_machine as $key)
+                                <option value="{{$key}}">{{$key}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Event:</label>
+                            <input type="text" class="form-control" name="desc" required="required">
                         </div>
                         <div class="form-group">
                             <label>Date</label>
@@ -130,6 +139,10 @@
                                             <div class="form-group">
                                                 <label>Line Number:</label>
                                                 <input type="text" class="form-control" name="line_number" id="line_number" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Event:</label>
+                                                <input type="text" class="form-control" name="desc" id="event" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label>Status:</label>
@@ -190,8 +203,9 @@
             eventMouseEnter: function(info) {
             var tis=info.el;
             var title=info.event._def.title;
+            var event=info.event._def.extendedProps.tooltip;
             var desc=info.event.extendedProps.tooltip;
-            var tooltip = '<div class="tooltipevent" style="top:'+($(tis).offset().top-5)+'px;left:'+($(tis).offset().left+($(tis).width())/2)+'px"><div>' + title + '</div></div>';
+            var tooltip = '<div class="tooltipevent" style="top:'+($(tis).offset().top-5)+'px;left:'+($(tis).offset().left+($(tis).width())/2)+'px"><div>' + title + ' ' + event +'</div></div>';
             var $tooltip = $(tooltip).appendTo('body');
 
 //            If you want to move the tooltip on mouse movement then you can uncomment it
@@ -210,13 +224,16 @@
                 $('.tooltipevent').remove();
             },
             eventClick: function(info) {
+                console.log(info.event._def)
                 var id=info.event.id;
                 var line_number=info.event._def.title;
                 var status=info.event._def.extendedProps.status;
+                var event=info.event._def.extendedProps.tooltip;
                 console.log(info.event)
 
                 $("#schedule-edit #id").val( id );
                 $("#schedule-edit #line_number").val( line_number );
+                $("#schedule-edit #event").val( event );
                 $("#schedule-edit #status").val( status ).change();
                 var modal = $("#schedule-edit");
                 modal.modal();

@@ -8,18 +8,15 @@
     max-width: 800px;
     margin: 1em auto;
 }
-
 #pdf {
     border: 1px solid silver;
     border-radius: 3px;
     background: #a4edba;
     padding: 0.5em 1em;
 }
-
 #pdf i {
     margin-right: 1em;
 }
-
 </style>
 {{-- <script src="https://code.highcharts.com/gantt/highcharts-gantt.js"></script>
 <script src="https://code.highcharts.com/gantt/modules/exporting.js"></script>
@@ -126,9 +123,6 @@
     <!-- /.content -->
   </div>
   <script>
-
-
-
   </script>
   <script>
     var options = {
@@ -146,7 +140,6 @@
           type: 'datetime'
         }
         };
-
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
         var fr = new Date();
@@ -157,7 +150,6 @@
         var to = t.toISOString().split('T')[0]
         console.log(from , to);
         var url = 'http://localhost:3000/api/planning/:period/graphic?production_date_from='+from+'&production_date_to='+to+'';
-
             axios({
               method: 'GET',
               url: url,
@@ -250,8 +242,6 @@
                   var p111;
                   var a111;
                   var a11 = response.data.content[10].data;
-
-
                   // BATAS
                   for (let i = 0; i < a.length; i++) {
                     s1 = String(a[i].start_production);
@@ -267,7 +257,6 @@
                         } else {
                           o1 = '#FF4560';
                         }
-
                     l1 = p1.substring(0, 10)
                     s11 = l1 +' '+ s1;
                     e11 = l1 +' '+ e1.replace('.',':');
@@ -277,7 +266,6 @@
                              'fillColor': o1
                                  }) + ',';
                     }
-
                     for (let i = 0; i < a2.length; i++) {
                     s12 = String(a2[i].start_production);
                     e12 = String(a2[i].finish_production);
@@ -291,8 +279,6 @@
                         } else {
                           o12 = '#FF4560';
                         }
-
-
                     l12 = p12.substring(0, 10)
                     s112 = l12 +' '+ s12;
                     e112 = l12 +' '+ e12.replace('.',':');
@@ -316,8 +302,6 @@
                         } else {
                           o13 = '#FF4560';
                         }
-
-
                     l13 = p13.substring(0, 10)
                     s113 = l13 +' '+ s13;
                     e113 = l13 +' '+ e13.replace('.',':');
@@ -341,8 +325,6 @@
                         } else {
                           o14 = '#FF4560';
                         }
-
-
                     l14 = p14.substring(0, 10)
                     s114 = l14 +' '+ s14;
                     e114 = l14 +' '+ e14.replace('.',':');
@@ -366,8 +348,6 @@
                         } else {
                           o15 = '#FF4560';
                         }
-
-
                     l15 = p15.substring(0, 10)
                     s115 = l15+' '+ s15;
                     e115 = l15 +' '+ e15.replace('.',':');
@@ -391,7 +371,6 @@
                         } else {
                           o16 = '#FF4560';
                         }
-
                     l16 = p16.substring(0, 10)
                     s116 = l16 +' '+ s16;
                     e116 = l16 +' '+ e16.replace('.',':');
@@ -415,7 +394,6 @@
                         } else {
                           o17 = '#FF4560';
                         }
-
                     l17 = p17.substring(0, 10)
                     s117 = l17 +' '+ s17;
                     e117 = l17 +' '+ e17.replace('.',':');
@@ -439,7 +417,6 @@
                         } else {
                           o18 = '#FF4560';
                         }
-
                     l18 = p18.substring(0, 10)
                     s118 = l18 +' '+ s18;
                     e118 = l18 +' '+ e18.replace('.',':');
@@ -463,7 +440,6 @@
                         } else {
                           o19 = '#FF4560';
                         }
-
                     l19 = p19.substring(0, 10)
                     s119 = l19 +' '+ s19;
                     e119 = l19 +' '+ e19.replace('.',':');
@@ -487,7 +463,6 @@
                         } else {
                           o110 = '#FF4560';
                         }
-
                     l110 = p110.substring(0, 10)
                     s1110 = l110 +' '+ s110;
                     e1110 = l110 +' '+ e110.replace('.',':');
@@ -511,7 +486,6 @@
                         } else {
                           o111 = '#FF4560';
                         }
-
                     l111 = p111.substring(0, 10)
                     s1111 = l111 +' '+ s111;
                     e1111 = l111 +' '+ e111.replace('.',':');
@@ -522,60 +496,47 @@
                                  }) + ',';
                     }
                     // BATAS
-
                   ////////////////
                   a1 = json.replace('remove','');
-
                   json1 = a1.substring('', a1.length - 1)
                   a11 =  '[' + json1 + ']' ;
-
                   a12 = json2.replace('remove','');
-
                   json12 = a12.substring('', a12.length - 1)
                   a112 =  '[' + json12 + ']' ;
                   ////////////////
                   a13 = json3.replace('remove','');
-
                   json13 = a13.substring('', a13.length - 1)
                   a113 =  '[' + json13 + ']' ;
                   ////////////////
                   a14 = json4.replace('remove','');
-
                   json14 = a14.substring('', a14.length - 1)
                   a114 =  '[' + json14 + ']' ;
                   ////////////////
                   a15 = json5.replace('remove','');
-
                   json15 = a15.substring('', a15.length - 1)
                   a115 =  '[' + json15 + ']' ;
                   ////////////////
                   a16 = json6.replace('remove','');
-
                   json16 = a16.substring('', a16.length - 1)
                   a116 =  '[' + json16 + ']' ;
                   ////////////////
                   a17 = json7.replace('remove','');
-
                   json17 = a17.substring('', a17.length - 1)
                   a117 =  '[' + json17 + ']' ;
                   ////////////////
                   a18 = json8.replace('remove','');
-
                   json18 = a18.substring('', a1.length - 1)
                   a118 =  '[' + json18 + ']' ;
                   ////////////////
                   a19 = json9.replace('remove','');
-
                   json19 = a19.substring('', a19.length - 1)
                   a119 =  '[' + json19 + ']' ;
                   ////////////////
                   a110 = json10.replace('remove','');
-
                   json110 = a110.substring('', a110.length - 1)
                   a1110 =  '[' + json110 + ']' ;
                   ////////////////
                   a111 = json11.replace('remove','');
-
                   json111 = a111.substring('', a111.length - 1)
                   a1111 =  '[' + json111 + ']' ;
                   /////////////////
@@ -589,7 +550,6 @@
                   console.log(a117);
                   console.log(a118);
                   console.log(a119);
-
               chart.updateSeries([{
                  name: 'MC-01',
                  data: $.parseJSON(a11)
@@ -627,4 +587,3 @@
             })
   </script>
 @endsection
-

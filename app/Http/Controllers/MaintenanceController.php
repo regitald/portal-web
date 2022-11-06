@@ -12,6 +12,7 @@ class MaintenanceController extends Controller
 
     public function index(Request $request){
         $data['data'] = $this->GET('http://localhost:3000/api/maintenance');
+        $data['list_machine'] = $this->GET('http://localhost:3000/api/machine/kpi')['content'];
         $data['title'] = 'Maintenance';
         return view('admin.maintenance.view',$data);
     }

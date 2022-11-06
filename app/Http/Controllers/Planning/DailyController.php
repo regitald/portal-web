@@ -65,5 +65,3 @@ class DailyController extends Controller
     }
 
 }
-
-
