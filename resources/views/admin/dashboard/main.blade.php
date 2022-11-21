@@ -43,7 +43,7 @@
             </div>
             <div class="card" style="height: 250px;width: 250px;">
               <div class="card-body text-center"><br>
-                <a href="#" class="card-link" style="text-decoration: none;color:#000;font-weight:bold;">
+                <a href="{{ url('admin/daily-report') }}" class="card-link" style="text-decoration: none;color:#000;font-weight:bold;">
                     <img src="{{url('sites/dist/img/logo1.png')}}" style="height: 150px;width: 150px;">
                     <br>Daily Report
                 </a>

@@ -63,12 +63,27 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckSession']], function()
         Route::post('/maintenance/store', 'App\Http\Controllers\MaintenanceController@store');
 
         //Analytic
-        Route::get('/production-analytic', 'App\Http\Controllers\ProductionAnalyticController@index');
+        // Route::get('/production-analytic', 'App\Http\Controllers\ProductionAnalyticController@index');
 
         //KPI
         Route::get('/kpi-dashboard', 'App\Http\Controllers\MachineKpi\MachineKpiController@index');
+        Route::get('/kpi-dashboard/detail/{id}', 'App\Http\Controllers\MachineKpi\MachineKpiController@detail');
         Route::get('/kpi/detail', 'App\Http\Controllers\KPIController@detail');
         Route::get('/kpi/all', 'App\Http\Controllers\MachineKpi\MachineKpiController@all');
+
+        Route::get('/production-analytic', [App\Http\Controllers\NgGraphic::class, 'viewPostData']);
+        Route::post('/production-analytic', [App\Http\Controllers\NgGraphic::class, 'processPostData']);
+
+        Route::get('/production-analytic/ng/line', [App\Http\Controllers\NgGraphicLine::class, 'viewPostData']);
+        Route::post('/production-analytic/ng/line', [App\Http\Controllers\NgGraphicLine::class, 'processPostData']);
+
+        Route::get('/dashboard-graphic', [App\Http\Controllers\DashboardGraphicController::class, 'index']);
+        Route::get('/data/{year}', [App\Http\Controllers\DashboardGraphicController::class, 'yearly']);
+        Route::get('/data/{year}/{month}', [App\Http\Controllers\DashboardGraphicController::class, 'monthly']);
+
+        Route::get('/daily-report', [App\Http\Controllers\ReportController::class, 'index']);
+        Route::post('/daily-report', [App\Http\Controllers\ReportController::class, 'postdata']);
+        
     });
 
 });

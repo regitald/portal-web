@@ -813,9 +813,9 @@
 </script>
 <sctipt ></script>
 <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script><script>
-    // var socket = io("http://103.214.112.156:3000/machines");
+     var socket = io("http://103.214.112.156:3000/machines");
 
-    var socket = io("127.0.0.1:3000/machines");
+    // var socket = io("127.0.0.1:3000/machines");
 
     const statusGreenColor = ['#1ba60b','#5dc150','#196110']
     const statusRedColor = ['#e52337','#f05871','#8f1d29']
